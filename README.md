@@ -9,10 +9,12 @@ Talking from the MSP430 to the Nokia LCD Screen
 The answers to the logic analyzer section will be posted to GitHub along with the functionality code.
 ###Physical communication
 Connect the Nokia 1202 Booster Pack to your TI Launch Pad.  Make sure that the buttons on the Booster Pack are pointed away from the USB connector (and on the same side of the board as the MSP430 buttons), just like in the following picture.
-![Board connection](connection.jpg)<br>
+(Picture can be found on the ECE382 website under "Lab 3")
+
 Download <a href="lab3.asm">lab3.asm</a> and build a project around the file.
 Run the program and observe the output on the LCD every time you press the SW3 button.  It should look something like the following image after a few button presses.<br>
-![test program](screen.jpg)<br>
+(Picture can be found on the ECE382 website under "Lab 3")
+
 When SW3 is detected as being pressed and released (lines 56-62), the MSP430 generates 4 packets of data that are sent to the Nokia 1202 display, causing a vertical bar to be drawn. Complete the following table by finding the 4 calls to writeNokiaByte that generate these packets. In addition, scan the nearby code to determine the parameters being passed into this subroutine. Finally, write a brief description of what is trying to be accomplished by each call to writeNokiaByte.
 
 |Line|R12|R13|Purpose|
