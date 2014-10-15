@@ -100,3 +100,78 @@ Here is the result of the AND, OR, and XOR operators:
 ## Functionality
 Required functionality: Create a block on the LCD that is 8x8 pixels.  The location of the block must be passed into the subroutine via r12 and r13.
 A functionality: Move the 8-pixel block one block in the direction of the pressed button (up, down, left, right).
+
+For Required Functionality I just changed the code used during the logic analyzer and changed the data so that it would make a line that is 8 bits long with one column. Then I simply did that seven more times to make the 8 by 8 pixel block, which then popped up on the screen to get Required functionality.
+
+```
+	mov		#NOKIA_DATA, R12			; For testing just draw an 8 pixel high
+	mov		#0xFF, R13					; beam
+	call	#writeNokiaByte
+
+	inc.b	R13
+```
+
+
+For A Functionality: I started at the required functionality and copied the code that was used to set the address for the code that was used during the logic analyzer portion of the lab.
+
+I then pasted that code 4 times and changed the names of the loops to while2, while3, while4 etc for each button press. Then I just changed the set address code to increment a certain number of times right if the right button is pressed then the same for the up down and left. 
+
+
+The code below is waiting for one of the buttons are pressed:
+
+Where while0 is the button that was used in the logic analyzer and does the same cursor move as the logic analyzer portiong
+
+while2 is the right button
+
+while3 is the left button
+
+while4 is the down button
+
+and while5 is the up button
+
+```
+while1:
+	bit.b	#8, &P2IN					; bit 3 of P1IN set?
+	jnz 	next						; Yes, branch back and wait
+	call	#while0
+next:
+	bit.b	#BIT1, &P2IN
+	jnz		next2
+	call	#while2
+next2:
+	bit.b	#BIT2, &P2IN
+	jnz		next3
+	call	#while3
+next3:
+	bit.b	#BIT4, &P2IN
+	jnz		next4
+	call	#while4
+next4:
+	bit.b	#BIT5, &P2IN
+	jnz		next5
+	call	#while5
+next5:		jmp		while1
+```
+
+
+Debugging: I was having issues with the block moved the direction that was pressed before... before the block moved the direction that I wanted it to move. All that needed to be done was to move the set address code in the loop to the top of the loop to clear screen and set address before writing to the nokia display.
+
+```
+	call	#clearDisplay2
+	bit.b	#BIT1, &P2IN					; bit 3 of P1IN clear?
+	jz		while2						; Yes, branch back and wait
+
+	inc		R11
+	inc		R11
+	inc		R11
+	inc		R11
+	inc		R11					; just let the columm overflow after 92 buttons
+	mov		R10, R12					; increment the row
+	mov		R11, R13					; and column of the next beam
+	call	#setAddress					; we draw
+```
+
+Documentation: Austin Bolinger showed me how to use the logic analyzer and I also got the lab writup from his github repo to use for this readme (formatting ect); however, I did not get any of the answers for this lab from him (so just the format for the readme).
+
+
+
