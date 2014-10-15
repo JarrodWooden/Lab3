@@ -19,10 +19,12 @@ When SW3 is detected as being pressed and released (lines 56-62), the MSP430 gen
 
 |Line|R12|R13|Purpose|
 |:-:|:-:|:-:|:-:|
-| 66 | move #NOKIA_DATA | move #0xE7 | move #1 into r12 - cmd vs data, this is the pattern that is drawn 1110 0111 |
-| 276 | #NOKIA_CMD | 1011 0000 | cmd, row number location on page  |
-| 288 | #NOKIA_CMD | 0001 0000 | cmd,  |
-| 294 | #NOKIA_CMD | mask upper bits to 0000 1111 | cmd, resets r13 (row) |
+| 66 | move #NOKIA_DATA | #0xE7 the value to be drawn to the LCD screen | To Draw 1110 0111 to the first column an starting at the first row down |
+| 276 | #NOKIA_CMD | xB1 - Was what the column was but switched to what row we want to start drawing to | Sets the cursor on the correct row.  |
+| 288 | #NOKIA_CMD | x10 - Would set where the column is for the first set of bits (need two sets of bits for all the columns | Sets the cursor on the first three bits if the cursor needs to be in the first three bits  |
+| 294 | #NOKIA_CMD | mask upper bits x01 - set second set of bits for the column | Sets the cursor on the second set of bits if it needs to be there. |
+
+
 Configure the logic analyzer to capture the waveform generated when the SW3 button is pressed and released. Decode the data bits of each 9-bit waveform by separating out the MSB, which indicates command or data. Explain how the packet contents correspond to what was drawn on the display.  Be specific with the relationship between the data values and what and where the pixels are drawn
 
 In the below Picture all the packages sent to the LCD:
