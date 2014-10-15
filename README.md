@@ -69,7 +69,9 @@ Then the Third Package and fourth package would be the first column.
 
 Hint: in order to probe the signals while the LCD is connected to the LaunchPad, you will need to use the LaunchPad header pins with the probe hook grippers. Be careful when attaching and detaching the grippers to the pins, as they may easily bend and then no longer serve you well. Also, don't forget the ground pin!<br>
 
-![Logic analyzer connection](left.jpg)<br>
+![alt text](https://raw.githubusercontent.com/JarrodWooden/Lab3/master/Connection1.jpg "Logic Analyzer Connection")
+
+![alt text](https://raw.githubusercontent.com/JarrodWooden/Lab3/master/Connection2.jpg "Logic Analyzer Connection")
 
 You will get a waveform similar to that shown below. Note that the command/data bit is significantly far away from the 8 data bits. <br>
 
