@@ -34,7 +34,7 @@ Configure the logic analyzer to capture the waveform generated when the SW3 butt
 Hint: in order to probe the signals while the LCD is connected to the LaunchPad, you will need to use the LaunchPad header pins with the probe hook grippers. Be careful when attaching and detaching the grippers to the pins, as they may easily bend and then no longer serve you well. Also, don't forget the ground pin!<br>
 ![Logic analyzer connection](left.jpg)<br>
 You will get a waveform similar to that shown below. Note that the command/data bit is significantly far away from the 8 data bits. <br>
-![Logic analyzer output](LA_datastream.jpg)<br>
+![alt text](https://raw.githubusercontent.com/JarrodWooden/Lab3/master/LA_datastream.jpg "LA Datastream")
 Next, setup the Logic Analyzer to capture the RESET signal on a falling edge. Measure the duration that the RESET line is held low in the initNokia subroutine. Hint, the code to hold the reset line low can be found on lines 93-100. 
 How many counts does the firmware loop count down from? 
 Using the delay you just measured and the number of counts, calculate the amount of time each iteration of the delay loop consumes.
@@ -44,7 +44,7 @@ The reset counter counts down from 0xFFFF (65535) to zero. But, the delay from t
 ###Writing modes
 The native write operation to the Nokia 1202 will overwrite any information that is was on the display with new information.  However, that may not be the best course of action in your application.  The new bits being added to the image may be merged using the AND, OR, XOR operators.  To do this treat a black pixel as a logic 1 and a white pixel as a logic 0.  The pixel values from the same locations are combined using a logical operator and placed at the corresponding location in the destination imaged.
 Import the following image into a paint program and show the result of the operation between the two bits maps combined using the logic operator specified.
-![xor picture](bitblock.jpg)
+![alt text](https://raw.githubusercontent.com/JarrodWooden/Lab3/master/bitblock.bmp "XOR BitMaps")
 ## Functionality
 Required functionality: Create a block on the LCD that is 8x8 pixels.  The location of the block must be passed into the subroutine via r12 and r13.
 A functionality: Move the 8-pixel block one block in the direction of the pressed button (up, down, left, right).
