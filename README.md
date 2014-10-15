@@ -25,6 +25,27 @@ When SW3 is detected as being pressed and released (lines 56-62), the MSP430 gen
 | 294 | #NOKIA_CMD | mask upper bits to 0000 1111 | cmd, resets r13 (row) |
 Configure the logic analyzer to capture the waveform generated when the SW3 button is pressed and released. Decode the data bits of each 9-bit waveform by separating out the MSB, which indicates command or data. Explain how the packet contents correspond to what was drawn on the display.  Be specific with the relationship between the data values and what and where the pixels are drawn
 
+In the below Picture all the packages sent to the LCD:
+
+![alt text](https://raw.githubusercontent.com/JarrodWooden/Lab3/master/AllPackages.jpg "All Packages Sent")
+
+Below shows a close up of the first package sent (which is a Data package, not a command):
+
+![alt text](https://raw.githubusercontent.com/JarrodWooden/Lab3/master/FirstPackage.jpg "First Package/ Data Package")
+
+Here is the Second Package:
+
+![alt text](https://raw.githubusercontent.com/JarrodWooden/Lab3/master/SecondPackage.jpg "Second Package/ Command")
+
+Third Package:
+
+![alt text](https://raw.githubusercontent.com/JarrodWooden/Lab3/master/ThirdPackage.jpg "Third Package/ Command")
+
+Fourth Package:
+
+![alt text](https://raw.githubusercontent.com/JarrodWooden/Lab3/master/FourthPackage.jpg "Fourth Package/ Command")
+
+
 |Line|Command/Data|8-bit packet|
 |:-:|:-:|:-:|
 | 66 | Data | E7 |
