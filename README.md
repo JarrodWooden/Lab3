@@ -29,6 +29,10 @@ Configure the logic analyzer to capture the waveform generated when the SW3 butt
 
 In the below Picture all the packages sent to the LCD:
 
+The first line in the Waveform is the RESET pin
+The second line is the Clock pin
+The last line (third line) is the MOSI pin
+
 ![alt text](https://raw.githubusercontent.com/JarrodWooden/Lab3/master/AllPackages.jpg "All Packages Sent")
 
 Below shows a close up of the first package sent (which is a Data package, not a command):
